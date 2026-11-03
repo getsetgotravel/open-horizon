@@ -1,0 +1,7 @@
+import InnerHero from '../../components/InnerHero';
+import Reveal from '../../components/Reveal';
+export const metadata={title:'What We Do',description:'A clear overview of the services delivered through MAGNUM, ImageCraft and GetSetGo.'};
+export default function Page(){return <><InnerHero eyebrow='WHAT WE DO' title='Connected capabilities. Coordinated solutions.' description='A clear overview of the services delivered through MAGNUM, ImageCraft and GetSetGo.'/><section className="section"><div className="container readable"><Reveal><section><h2>Event management & production — MAGNUM</h2><p>Corporate conferences, product launches, dealer meets, weddings, social celebrations, fashion events, live entertainment, staging, décor, lighting, sound and AV production.</p></section>
+<section><h2>Photography & visual production — ImageCraft</h2><p>Corporate and commercial photography, cinematography, brand films, portraits, architectural and hospitality imagery, weddings, fashion photography and event documentation.</p></section>
+<section><h2>Travel & MICE — GetSetGo</h2><p>Corporate travel, executive travel management, meetings, incentives, conferences and exhibitions, group travel, bespoke holidays, inbound journeys and pilgrimage travel.</p></section>
+<section><h2>Hospitality partnerships</h2><p>We work with hotels and venue teams to align client programmes with property operations, event production requirements, guest coordination and travel arrangements.</p></section></Reveal></div></section></>}

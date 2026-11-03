@@ -1,0 +1,2 @@
+import Link from 'next/link';import {servicePages} from '../data/content';import {ArrowUpRight} from 'lucide-react';
+export default function ServiceCards({filter}){return <div className="service-grid">{Object.entries(servicePages).filter(([,s])=>!filter||s.category===filter).map(([slug,s])=><Link className="service-card" href={`/services/${slug}`} key={slug}><span className="eyebrow">{s.category}</span><h3>{s.title}</h3><p>{s.summary}</p><ArrowUpRight size={24}/></Link>)}</div>}

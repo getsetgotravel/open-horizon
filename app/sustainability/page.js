@@ -1,0 +1,7 @@
+import InnerHero from '../../components/InnerHero';
+import Reveal from '../../components/Reveal';
+export const metadata={title:'Sustainability',description:'Our approach to environmental awareness, resource efficiency and social responsibility.'};
+export default function Page(){return <><InnerHero eyebrow='SUSTAINABILITY' title='Thoughtful growth. Responsible choices.' description='Our approach to environmental awareness, resource efficiency and social responsibility.'/><section className="section"><div className="container readable"><Reveal><section><h2>Environmental stewardship</h2><p>Open Horizon strives to minimise unnecessary consumption through responsible sourcing, efficient logistics, technology-led planning and considered use of production resources.</p></section>
+<section><h2>Waste-conscious production</h2><p>Our practices focus on waste segregation, appropriate disposal of organic and non-organic materials and reducing plastic usage where practical.</p></section>
+<section><h2>Social responsibility</h2><p>We seek opportunities to collaborate with NGOs, support surplus food redistribution and enable skill development and employment opportunities for underprivileged communities.</p></section>
+<section><h2>Our commitment</h2><p>We aim to balance business growth with respect for the environment, society and future generations. These are commitments and practices described in our company profile, not third-party certifications.</p></section></Reveal></div></section></>}

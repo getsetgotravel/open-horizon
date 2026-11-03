@@ -1,0 +1,1 @@
+export default function InnerHero({eyebrow,title,description}){return <div className="inner-hero"><div className="container"><div className="eyebrow light"><span className="eyebrow-line"/>{eyebrow}</div><h1>{title}</h1><p>{description}</p></div></div>}

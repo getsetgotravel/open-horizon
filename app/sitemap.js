@@ -1,0 +1,2 @@
+import {site} from '../data/site';import {servicePages} from '../data/content';
+export default function sitemap(){return ['/','/about','/who-we-are','/what-we-do','/infrastructure','/sustainability','/our-team','/magnum','/imagecraft','/getsetgo','/experience','/contact',...Object.keys(servicePages).map(s=>`/services/${s}`)].map(path=>({url:site.url+path,lastModified:new Date(),changeFrequency:path==='/'?'weekly':'monthly',priority:path==='/'?1:.7}));}
