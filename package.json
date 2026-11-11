@@ -1,5 +1,5 @@
 {
-  "name": "open-horizon-corporate",
+  "name": "open-horizon",
   "version": "1.0.0",
   "private": true,
   "description": "A ready-to-run Next.js App Router website, based on the supplied Open Horizon company profile.",
