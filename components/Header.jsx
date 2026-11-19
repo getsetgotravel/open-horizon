@@ -73,33 +73,39 @@ export default function Header() {
     };
   }, [open]);
 
-  const solidHeader = scrolled || pathname !== '/';
+  const solidHeader = scrolled;
 
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[100] transition-all duration-500 ${
-          solidHeader
-            ? 'border-b border-[#DFE6E0]/80 bg-[#F8F7F3]/95 shadow-[0_5px_35px_rgba(0,0,0,0.05)] backdrop-blur-xl'
-            : 'bg-gradient-to-b from-[#041D24]/65 to-transparent'
-        }`}
-      >
+  className={`fixed inset-x-0 top-0 z-[100] transition-all duration-500 ${
+    solidHeader
+      ? 'border-b border-[#DFE6E0]/80 bg-[#F8F7F3]/95 shadow-[0_5px_35px_rgba(0,0,0,0.05)] backdrop-blur-xl'
+      : 'border-b border-transparent bg-transparent'
+  }`}
+>
         <div className="mx-auto flex h-[76px] w-[90%] max-w-[1500px] items-center justify-between md:h-[92px]">
-           <Link
-      href="/"
-      aria-label="Open Horizon Home"
-      onClick={() => setOpen(false)}
-      className="relative flex h-[68px] w-[220px] shrink-0 items-center justify-center md:h-[78px] md:w-[280px]"
-    >
-           <Image
-        src="/logos/open-horizon.png"
-        alt="Open Horizon — Infinite Possibilities"
-        fill
-        priority
-        sizes="(max-width: 768px) 230px, 280px"
-        className="object-contain object-left"
-      />
-          </Link>
+         <Link
+  href="/"
+  aria-label="Open Horizon Home"
+  onClick={() => setOpen(false)}
+  className="relative flex h-[68px] w-[220px] shrink-0 items-center md:h-[78px] md:w-[250px]"
+>
+  <span
+    className={`absolute left-0 top-0 h-full bg-white transition-all duration-500 ${
+      solidHeader ? 'w-0' : 'w-[180px] md:w-[235px]'
+    }`}
+  />
+
+  <Image
+    src="/logos/open-horizon-logo.png"
+    alt="Open Horizon — Infinite Possibilities"
+    fill
+    priority
+    sizes="(max-width: 768px) 235px, 280px"
+    className="object-contain object-left"
+  />
+</Link>
 
           <button
             type="button"

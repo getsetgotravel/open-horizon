@@ -14,6 +14,8 @@ import {
   ArrowRight,
   ArrowLeft,
   Building2,
+  BadgeCheck,
+  Landmark,
   Layers3,
   Camera,
   Plane,
@@ -30,20 +32,25 @@ import {
    ========================================= */
 
 const images = {
+
   executive:
-    '/images/hero/open-horizon-luxury-executive-office.png',
+    '/images/hero/heroimg.png',
 
   reception:
     '/images/hero/open-horizon-corporate-reception.png',
 
   events:
-    '/images/hero/magnum-luxury-event-production.png',
+    '/images/hero/magnum-vertical.png',
 
   studio:
-    '/images/hero/imagecraft-professional-photography-studio.png',
+    '/images/hero/Imagecraft-vertical.png',
 
   travel:
-    '/images/hero/getsetgo-premium-travel-experience.png',
+    '/images/hero/getsetgo verticals.png',
+
+  strategic:
+  '/images/hero/open-horizon-luxury-executive-office.png'
+
 };
 
 /* =========================================
@@ -67,81 +74,41 @@ const ease = [0.22, 1, 0.36, 1];
 
 const slides = [
   {
-    id: '01',
+    
     eyebrow: 'OPEN HORIZON · INFINITE POSSIBILITIES',
-    line1: 'One Integrated',
+    line1: 'An Integrated',
     line2: 'Enterprise.',
     description:
-      'Connecting specialist expertise across luxury hospitality, event production, high-definition visual media and bespoke travel through one coordinated corporate framework.',
+      'Connecting specialist expertise across luxury hospitality,\nevent production, high-definition visual media and bespoke \ntravel through one coordinated corporate framework.',
     image: images.executive,
     cta: 'Discover Open Horizon',
     href: '/who-we-are',
-  },
-  {
-    id: '02',
-    eyebrow: 'RELATIONSHIPS · GOVERNANCE · EXECUTION',
-    line1: 'Built on Relationships.',
-    line2: 'Defined by Execution.',
-    description:
-      'A relationship-led enterprise bringing together professional expertise, established institutional associations and disciplined operational management.',
-    image: images.reception,
-    cta: 'Who We Are',
-    href: '/who-we-are',
-  },
-  {
-    id: '03',
-    eyebrow: 'INFRASTRUCTURE · OPERATIONAL STRENGTH',
-    line1: 'Strength in Resources.',
-    line2: 'Confidence in Delivery.',
-    description:
-      'Company-owned infrastructure, substantial technical resources and established specialist networks provide a strong foundation for diverse business requirements.',
-    image: images.events,
-    cta: 'Our Infrastructure',
-    href: '/infrastructure',
-  },
-  {
-    id: '04',
-    eyebrow: 'CORPORATE & HOSPITALITY PARTNERSHIPS',
-    line1: 'Beyond Transactions.',
-    line2: 'Lasting Relationships.',
-    description:
-      'Aligning corporate requirements with premium hospitality partnerships, specialist expertise and coordinated service delivery to create enduring commercial value.',
-    image: images.travel,
-    cta: 'Connect With Us',
-    href: '/contact',
-  },
+  }
+  
 ];
 
 const verticals = [
   {
-    number: '01',
-    eyebrow: 'EVENT MANAGEMENT & PRODUCTION',
     name: 'MAGNUM',
     tagline: 'Luxury Celebrations & Grand Experiences',
-    description:
-      'Creative event design, technical production and professionally managed execution across corporate events, conferences, luxury celebrations, fashion and live entertainment.',
+    description:'EVENT MANAGEMENT & PRODUCTION',
     image: images.events,
-    href: '/magnum',
+    href: 'https://magnumevents.in/',
   },
   {
-    number: '02',
-    eyebrow: 'PHOTOGRAPHY & VISUAL PRODUCTION',
     name: 'ImageCraft',
     tagline: 'Framing Moments. Crafting Memories.',
-    description:
-      'Professional photography, cinematography and visual storytelling supported by advanced production infrastructure, creative expertise and specialist technical capabilities.',
+    description:'PHOTOGRAPHY & VISUAL PRODUCTION',
     image: images.studio,
-    href: '/imagecraft',
+    href: 'http://imgcraft.in/',
   },
   {
-    number: '03',
-    eyebrow: 'TRAVEL & MICE',
+
     name: 'GetSetGo',
     tagline: 'Happy Escapes, Personally Managed.',
-    description:
-      'Corporate travel, executive mobility, MICE programmes and bespoke domestic and international experiences delivered through personalised planning and coordinated assistance.',
+    description:'TRAVEL & MICE',
     image: images.travel,
-    href: '/getsetgo',
+    href: 'http://getsetgo.in/',
   },
 ];
 
@@ -274,21 +241,28 @@ function SectionTitle({
   );
 }
 
+
+
 function EditorialLink({ href, children, light = false }) {
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center gap-5 border-b pb-3 text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors ${
-        light
-          ? 'border-white/40 text-white hover:border-white'
-          : 'border-[#367466]/40 text-[#245D55] hover:border-[#245D55]'
-      }`}
+      className={`group inline-flex min-h-[54px] items-center
+        justify-between gap-8 px-7 py-4
+        text-[11px] font-semibold uppercase tracking-[0.08em]
+        text-white bg-[#0787A6]
+        transition-all duration-500 ease-in-out
+        hover:bg-[#174F43]
+        hover:shadow-[0_8px_25px_rgba(0,0,0,0.12)]`}
     >
-      {children}
+      <span>{children}</span>
 
-      <ArrowUpRight
+      <ArrowRight
         size={18}
-        className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+        strokeWidth={1.7}
+        className="transition-transform duration-300
+          group-hover:-translate-y-1
+          group-hover:translate-x-1"
       />
     </Link>
   );
@@ -397,9 +371,23 @@ function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* CINEMATIC OVERLAYS */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#031A21]/95 via-[#071F29]/75 to-[#09232A]/10" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#041921]/75 via-transparent to-[#041A21]/20" />
+     
+{/* SUBTLE LEFT-SIDE GRADIENT */}
+                <div
+  className="pointer-events-none absolute inset-0"
+  style={{
+    background: `
+      linear-gradient(
+        90deg,
+        rgba(3, 26, 33, 0.98) 0%,
+        rgba(3, 26, 33, 0.90) 25%,
+        rgba(3, 26, 33, 0.65) 50%,
+        rgba(3, 26, 33, 0.35) 75%,
+        rgba(3, 26, 33, 0.20) 100%
+      )
+    `,
+  }}
+/>
 
       {/* TEXT — LEFT BOTTOM */}
       <div className="relative z-10 mx-auto flex h-full w-[90%] max-w-[1440px] items-end pb-[115px] md:pb-[135px]">
@@ -426,14 +414,16 @@ function Hero() {
                 {slide.eyebrow}
               </Eyebrow>
 
-              <h1 className="mt-7 font-[family-name:var(--font-playfair)] text-[clamp(48px,5.6vw,84px)] font-medium leading-[1.1] tracking-[-0.045em]">
-                {slide.line1}
-                <span className="block italic text-[#D5C3A1]">
-                  {slide.line2}
-                </span>
-              </h1>
+              
+            <h1 className="mt-7 font-[family-name:var(--font-playfair)] text-[clamp(30px,5.6vw,38px)] font-medium leading-[1.1] tracking-[-0.045em]">
+              {slide.line1}{" "}
+              <span className="inline text-[#c3d8c2]">
+                {slide.line2}
+              </span>
+            </h1>
 
-              <p className="mt-7 max-w-[630px] text-[15px] leading-[1.9] text-white/85 md:text-[17px]">
+
+              <p className="whitespace-pre-line mt-7 max-w-[630px] text-[15px] leading-[1.9] text-white/85 md:text-[17px]">
                 {slide.description}
               </p>
 
@@ -444,7 +434,7 @@ function Hero() {
                 >
                   {slide.cta}
 
-                  <ArrowUpRight
+                  <ArrowRight
                     size={18}
                     className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
                   />
@@ -462,55 +452,7 @@ function Hero() {
         </div>
       </div>
 
-      {/* CAROUSEL NAVIGATION */}
-      <div className="absolute bottom-8 left-[5%] right-[5%] z-20 flex items-center justify-between">
-        <div className="flex gap-3">
-          {slides.map((item, index) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setActive(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              aria-current={
-                active === index ? 'true' : undefined
-              }
-              className="flex w-10 flex-col gap-3 text-left md:w-14"
-            >
-              <span className="text-[10px] text-white/80">
-                {item.id}
-              </span>
-
-              <span
-                className={`h-[2px] w-full ${
-                  active === index
-                    ? 'bg-[#75D1C1]'
-                    : 'bg-white/30'
-                }`}
-              />
-            </button>
-          ))}
-        </div>
-
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={previous}
-            aria-label="Previous slide"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/55 transition-colors hover:bg-white hover:text-[#173D44]"
-          >
-            <ArrowLeft size={18} />
-          </button>
-
-          <button
-            type="button"
-            onClick={next}
-            aria-label="Next slide"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/55 transition-colors hover:bg-white hover:text-[#173D44]"
-          >
-            <ArrowRight size={18} />
-          </button>
-        </div>
-      </div>
+  
     </section>
   );
 }
@@ -528,40 +470,42 @@ function WhoWeAre() {
       <div className="mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-24">
         <div>
           <SectionTitle
-            eyebrow="01 / THE OPEN HORIZON PHILOSOPHY"
+            eyebrow="THE OPEN HORIZON PHILOSOPHY"
             title={
               <>
-                Distinct Capabilities.
+                An Integrated Enterprise.
                 <br />
-                <em className="text-[#367465]">
-                  Collective Strength.
-                </em>
+                 <span className="block not-italic text-[#0787A6]">
+        A Diversified Expertise.
+      </span>
+                
               </>
             }
           />
 
           <Reveal delay={0.15}>
-            <p className={`${bodyClass} mt-8 text-[#647579]`}>
-              Open Horizon is an integrated enterprise
-              platform operating at the intersection of
-              luxury hospitality, live experiences,
-              high-definition visual media and bespoke
-              travel.
-            </p>
+  <p className={`${bodyClass} mt-8 text-justify text-[#647579]`}>
+    Open Horizon is a diversified business enterprise bringing
+    together three specialised verticals —{' '}
+    <span className="font-bold text-[#245D55]">
+      MAGNUM, ImageCraft and GetSetGo
+    </span>
+    {' '}— across events, hospitality, visual media and travel management.
+  </p>
 
-            <p className={`${bodyClass} mt-5 text-[#647579]`}>
-              Through MAGNUM, ImageCraft and GetSetGo,
-              we connect specialist capabilities under
-              centralised corporate stewardship,
-              combining relationship-led service,
-              operational discipline and one
-              accountable interface.
-            </p>
-          </Reveal>
+  <p className={`${bodyClass} mt-5 text-justify text-[#647579]`}>
+    Our business is supported by experienced professionals,
+    established industry relationships and company-owned
+    infrastructure. Each vertical maintains its specialised
+    expertise while operating within a coordinated framework
+    of corporate governance, operational discipline and
+    consistent service standards.
+  </p>
+</Reveal> 
 
           <Reveal delay={0.25} className="mt-9">
             <EditorialLink href="/who-we-are">
-              Discover Our Philosophy
+              EXPLORE OUR COMPANY
             </EditorialLink>
           </Reveal>
         </div>
@@ -581,11 +525,10 @@ function WhoWeAre() {
               />
             </motion.div>
 
-            <div className="absolute -bottom-8 -left-3 max-w-[285px] bg-[#123A3C] p-7 text-white md:-left-10">
-              <p className="font-[family-name:var(--font-playfair)] text-[25px] italic leading-[1.4] tracking-[-0.035em]">
-                Professional Relationships.
-                Coordinated Solutions.
-                Lasting Value.
+            <div className="absolute - bottom-8 -left-3 max-w-[285px] bg-[#123A3C] p-7 text-white md:-left-6">
+              <p className="font-[family-name:var(--font-playfair)] text-[24px] italic leading-[1.4] tracking-[-0.035em]">
+                Professional Integrity.
+                Institutional Strength.
               </p>
             </div>
           </div>
@@ -599,179 +542,565 @@ function WhoWeAre() {
    SECTION 03 — BUSINESS ECOSYSTEM
    ========================================= */
 
-function Ecosystem() {
-  return (
-    <section
-      id="ecosystem"
-      className="scroll-mt-20 bg-[#0C3037] px-6 py-24 text-white md:px-14 md:py-28"
-    >
-      <div className="mx-auto max-w-[1400px]">
-        <div className="flex flex-col justify-between gap-9 lg:flex-row lg:items-end">
-          <SectionTitle
-            light
-            eyebrow="02 / OUR SPECIALIST VERTICALS"
-            title={
-              <>
-                Three Distinct Businesses.
-                <br />
-                <em className="text-[#A9CDBC]">
-                  One Unified Platform.
-                </em>
-              </>
-            }
-            description="Each vertical retains its specialist identity, dedicated capabilities and operational focus while benefiting from a connected enterprise ecosystem."
-          />
+// function Ecosystem() {
+//   return (
+//     <section
+//       id="ecosystem"
+//       className="scroll-mt-20 bg-[#0C3037] px-6 py-24 text-white md:px-14 md:py-28"
+//     >
+//       <div className="mx-auto max-w-[1400px]">
+//         <div className="flex flex-col justify-between gap-9 lg:flex-row lg:items-end">
+//           <SectionTitle
+//             light
+//             eyebrow="02 / OUR SPECIALIST VERTICALS"
+//             title={
+//               <>
+//                 Three Distinct Businesses.
+//                 <br />
+//                 <em className="text-[#A9CDBC]">
+//                   One Unified Platform.
+//                 </em>
+//               </>
+//             }
+//             description="Each vertical retains its specialist identity, dedicated capabilities and operational focus while benefiting from a connected enterprise ecosystem."
+//           />
 
-          <Reveal>
-            <EditorialLink href="/what-we-do" light>
-              What We Do
-            </EditorialLink>
-          </Reveal>
-        </div>
+//           <Reveal>
+//             <EditorialLink href="/what-we-do" light>
+//               What We Do
+//             </EditorialLink>
+//           </Reveal>
+//         </div>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
-          {verticals.map((item, index) => (
-            <Reveal
-              key={item.name}
-              delay={index * 0.1}
-            >
-              <Link
-                href={item.href}
-                className="group relative block h-[525px] overflow-hidden bg-[#173F46]"
-              >
-                <div className="absolute inset-0 transition-transform duration-1000 ease-out group-hover:scale-[1.08]">
-                  <Photo
-                    src={item.image}
-                    alt={`${item.name} services`}
-                    className="h-full w-full"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
+//         <div className="mt-14 grid gap-5 lg:grid-cols-3">
+//           {verticals.map((item, index) => (
+//             <Reveal
+//               key={item.name}
+//               delay={index * 0.1}
+//             >
+//               <Link
+//                 href={item.href}
+//                 className="group relative block h-[525px] overflow-hidden rounded-[12px] bg-[#173F46] shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-shadow duration-500 hover:shadow-[0_14px_32px_rgba(0,0,0,0.24)]">
+            
+//                 <div className="absolute inset-0 transition-transform duration-1000 ease-out group-hover:scale-[1.08]">
+                 
+//                   <Photo
+//                     src={item.image}
+//                     alt={`${item.name} services`}
+//                     className="h-full w-full object-cover object-center"
+//                     sizes="(max-width: 1024px) 100vw, 33vw"
+//                   />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#021820]/95 via-[#071F27]/50 to-[#071F27]/10" />
+//                 </div>
 
-                <div className="absolute left-7 right-7 top-7 flex items-start justify-between gap-4">
-                  <span className="max-w-[235px] text-[10px] font-semibold tracking-[0.14em] text-white/80">
-                    {item.eyebrow}
-                  </span>
+//                 <div className="absolute inset-0 bg-gradient-to-t from-[#021820]/95 via-[#071F27]/50 to-[#071F27]/10" />
 
-                  <span className="text-[11px] text-white/70">
-                    {item.number}
-                  </span>
-                </div>
+               
 
-                <div className="absolute bottom-0 left-0 right-0 p-7 md:p-8">
-                  <h3 className="font-[family-name:var(--font-playfair)] text-[38px] font-medium tracking-[-0.035em]">
-                    {item.name}
-                  </h3>
+//                 <div className="absolute bottom-0 left-0 right-0 p-7 md:p-8">
+//                   <h3 className="mt-2 font-[family-name:var(--font-playfair)] text-[38px] font-medium tracking-[-0.035em]">
+//                     {item.name}
+//                   </h3>
 
-                  <p className="mt-2 text-[12px] font-medium text-[#A9D5C9]">
-                    {item.tagline}
-                  </p>
+//                   <p className="mt-2 text-[14px] font-medium text-[#A9D5C9]">
+//                     {item.tagline}
+//                   </p>
 
-                  <p className="mt-5 text-[13px] leading-[1.9] text-white/75">
-                    {item.description}
-                  </p>
+//                   <p className="mt-2 text-[14px] leading-[1.9] text-white/75">
+//                     {item.description}
+//                   </p>
 
-                  <div className="mt-7 flex items-center justify-between border-t border-white/25 pt-5">
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.12em]">
-                      Explore {item.name}
-                    </span>
+//                   <div className="mt-2 flex items-center justify-between border-t border-white/25 pt-2">
+//                     <span className="text-[11px] font-semibold uppercase tracking-[0.12em]">
+//                       Explore {item.name}
+//                     </span>
 
-                    <ArrowUpRight
-                      size={20}
-                      className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-                    />
-                  </div>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+//                     <ArrowRight
+//                       size={20}
+//                       className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+//                     />
+//                   </div>
+//                 </div>
+//               </Link>
+//             </Reveal>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
 
 /* =========================================
-   SECTION 04 — INFRASTRUCTURE
+   NEW SECTION ADDED — OUR BUSINESS VERTICALS
    ========================================= */
 
-function Infrastructure() {
+// function BusinessVerticals() {
+//   const content = {
+//     MAGNUM: {
+//       eyebrow: "EVENT MANAGEMENT & PRODUCTION",
+//       heading: "Experiences Defined",
+//       highlight: "by Excellence.",
+//       description:
+//         "MAGNUM specialises in the planning, production and execution of corporate events, luxury celebrations and large-scale experiences. From conferences, dealer meets and product launches to destination weddings and live entertainment, every assignment is managed through coordinated creative, technical and operational expertise.",
+//       services: [
+//         "Corporate Events",
+//         "Event Production",
+//         "Luxury Celebrations",
+//         "Live Entertainment",
+//       ],
+//     },
+
+//     ImageCraft: {
+//       eyebrow: "PHOTOGRAPHY & VISUAL PRODUCTION",
+//       heading: "Creativity Backed",
+//       highlight: "by Precision.",
+//       description:
+//         "ImageCraft brings together professional photography, cinematography and visual production capabilities. Supported by advanced imaging equipment, aerial technology and post-production resources, the business creates compelling visual content for corporate organisations, hospitality brands, events and individual clients.",
+//       services: [
+//         "Professional Photography",
+//         "Cinematography",
+//         "Aerial Imaging",
+//         "Visual Production",
+//       ],
+//     },
+
+//     GetSetGo: {
+//       eyebrow: "CORPORATE TRAVEL & MICE",
+//       heading: "Travel Managed",
+//       highlight: "with Expertise.",
+//       description:
+//         "GetSetGo delivers integrated travel management and MICE solutions for corporate and leisure requirements. From business travel, executive movements and international conferences to incentive programmes, group tours and personalised holidays, arrangements are coordinated through established hospitality and destination partnerships.",
+//       services: [
+//         "Corporate Travel",
+//         "Meetings & Conferences",
+//         "Incentive Travel",
+//         "Leisure & Group Travel",
+//       ],
+//     },
+//   };
+
+//   return (
+//     <section
+//       id="business-verticals"
+//       className="bg-[#F7F7F3] px-6 py-24 md:px-14 md:py-28"
+//     >
+//       <div className="mx-auto max-w-[1400px]">
+
+      
+//     {/* SECTION INTRO — CENTERED DARK BACKGROUND */}
+//         <Reveal>
+//           <div className="mx-auto mb-16 max-w-[950px] rounded-[14px] bg-[#15383B] px-7 py-14 text-center shadow-[0_14px_40px_rgba(0,0,0,0.08)] md:mb-20 md:px-16 md:py-16">
+
+//             {/* EYEBROW */}
+//             <div className="flex items-center justify-center gap-3">
+//               <span className="h-px w-8 bg-[#A9CDBC]" />
+
+//               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#A9CDBC]">
+//                 OUR SPECIALIST VERTICALS
+//               </p>
+
+//               <span className="h-px w-8 bg-[#A9CDBC]" />
+//             </div>
+
+//             {/* HEADING */}
+//             <h2 className="mt-3 font-[family-name:var(--font-playfair)] text-[clamp(30px,4vw,36px)] font-medium leading-[1.15] tracking-[-0.035em] text-white">
+//               Three Distinct Businesses.
+//               <br />
+//               <em className="font-normal text-[#B9D6C3]">
+//                 An Integral Platform
+//               </em>
+//             </h2>
+
+//             {/* DESCRIPTION */}
+//             <p className="mx-auto mt-6 max-w-[680px] text-[16px] leading-[1.9] text-white/75">
+//               Explore the distinct capabilities of our
+//               three businesses, each supported by
+//               professional expertise, industry relationships
+//               and a commitment to coordinated execution.
+//             </p>
+
+//           </div>
+//         </Reveal>
+
+
+//         {/* ALTERNATING VERTICALS */}
+//         <div className="space-y-20 md:space-y-28">
+
+//           {verticals.map((item, index) => {
+//             const detail = content[item.name];
+
+//             if (!detail) return null;
+
+//             const reversed = index % 2 === 1;
+
+//             return (
+//               <div
+//                 key={item.name}
+//                 className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20"
+//               >
+
+//                 {/* IMAGE */}
+//                 <div
+//                   className={
+//                     reversed
+//                       ? "lg:order-2"
+//                       : "lg:order-1"
+//                   }
+//                 >
+//                   <Reveal>
+//                     <Link
+//                       href={item.href}
+//                       className="group relative block overflow-hidden rounded-[12px] bg-[#173F46] shadow-[0_10px_30px_rgba(0,0,0,0.10)]"
+//                     >
+//                       <div className="aspect-[3/4] w-full overflow-hidden">
+//                         <div className="h-full w-full transition-transform duration-1000 ease-out group-hover:scale-[1.035]">
+//                           <Photo
+//                             src={item.image}
+//                             alt={`${item.name} services`}
+//                             className="h-full w-full object-cover object-center"
+//                             sizes="(max-width: 1024px) 100vw, 45vw"
+//                           />
+//                         </div>
+//                       </div>
+//                     </Link>
+//                   </Reveal>
+//                 </div>
+
+//                 {/* CONTENT */}
+//                 <div
+//                   className={
+//                     reversed
+//                       ? "lg:order-1"
+//                       : "lg:order-2"
+//                   }
+//                 >
+//                   <Reveal delay={0.1}>
+//                     <div className="max-w-[560px]">
+
+//                       {/* EYEBROW */}
+//                       <div className="flex items-center gap-3">
+//                         <span className="h-px w-7 bg-[#397666]" />
+
+//                         <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#397666]">
+//                           0{index + 1} / {detail.eyebrow}
+//                         </p>
+//                       </div>
+
+//                       {/* BRAND NAME */}
+//                       <p className="mt-7 font-[family-name:var(--font-playfair)] text-[22px] font-semibold text-[#15383B]">
+//                         {item.name}
+//                       </p>
+
+//                       {/* HEADING */}
+//                       <h3 className="mt-4 font-[family-name:var(--font-playfair)] text-[clamp(34px,3.5vw,46px)] font-medium leading-[1.18] tracking-[-0.035em] text-[#15383B]">
+//                         {detail.heading}
+//                         <br />
+//                         <em className="font-normal text-[#397666]">
+//                           {detail.highlight}
+//                         </em>
+//                       </h3>
+
+//                       {/* DESCRIPTION */}
+//                       <p className="mt-7 text-[16px] leading-[1.95] text-[#5E6F69]">
+//                         {detail.description}
+//                       </p>
+
+//                       {/* SERVICES */}
+//                       <div className="mt-9 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-[#D4DFD7] pt-7">
+//                         {detail.services.map((service) => (
+//                           <div
+//                             key={service}
+//                             className="flex items-start gap-3"
+//                           >
+//                             <span className="mt-[9px] h-[5px] w-[5px] shrink-0 rounded-full bg-[#397666]" />
+
+//                             <span className="text-[13px] leading-[1.7] text-[#425F56]">
+//                               {service}
+//                             </span>
+//                           </div>
+//                         ))}
+//                       </div>
+
+//                       {/* CTA */}
+//                       <div className="mt-10">
+//                         <Link
+//                           href={item.href}
+//                           className="group inline-flex items-center gap-7 border-b border-[#397666] pb-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#15383B] transition-colors duration-300 hover:text-[#397666]"
+//                         >
+//                           Explore {item.name}
+
+//                           <ArrowRight
+//                             size={18}
+//                             className="transition-transform duration-300 group-hover:translate-x-2"
+//                           />
+//                         </Link>
+//                       </div>
+
+//                     </div>
+//                   </Reveal>
+//                 </div>
+
+//               </div>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+
+
+/* =========================================
+   SECTION 04 — OUR BUSINESS VERTICALS
+   ========================================= */
+
+function BusinessVerticals() {
+  const content = {
+    MAGNUM: {
+      eyebrow: "Luxury Celebration and Grand Experiences",
+      description:
+        "Magnum is the event management vertical of Open Horizon specialising in the planning, creative design, production and execution of events across corporate, wedding, social and hospitality segments. Backed by an experienced event execution team and an established network of specialist vendors, fabricators, decorators, technical production partners, creative professionals, artists and hospitality service providers, Magnum offers integrated event management solutions through a single, professionally coordinated interface. Our approach combines creative flexibility with commercial transparency, reliable coordination and an understanding of the operational requirements of corporate clients and premium hospitality venues. ",
+      services: [
+        "Event Design & Production",
+        "Corporate Events & Conferences",
+        "Weddings & Social Celebrations",
+        "Fashion, Entertainment & Live Experiences",
+    
+      ],
+    },
+
+    ImageCraft: {
+      eyebrow: "Framing Moments. Crafting memories.",
+      description:"ImageCraft is the photography and visual production vertical of Open Horizon, offering professional photography, cinematography and imaging solutions across corporate, commercial, fashion, wedding, hospitality and event segments.Positioned as one of the leading B2B photography and visual production brands in Delhi NCR, ImageCraft combines extensive technical infrastructure, a skilled in-house team of creative professionals and an established network of specialist photographers, cinematographers, editors and visual artists. With production infrastructure representing an investment running into eight figures, our capabilities extend from intimate photographic assignments to complex commercial productions and large-scale live events.",
+      services: [
+        "Corporate, Commercial & Hospitality Visual Production",
+        "Weddings, Fashion & Celebrity Photography",
+        "Events, Cultural & Visual Documentation",
+        "Advanced Production Infrastructure & Technical Capabilities",
+      ],
+    },
+
+    GetSetGo: {
+      eyebrow: "Happy Escapes, Personally Managed",
+      description:"GetSetGo is a premium travel advisory and concierge vertical built around the belief that exceptional travel is as much about the journey as the destination. The brand name GetSetGo itself embodies positive energy, reflecting the excitement of discovering new places, embracing new experiences and setting out on journeys with confidence. We curate domestic and international travel experiences, manage corporate travel and MICE requirements, and coordinate group movements through an extensive network of established travel, hospitality and destination partners. Every itinerary is approached with an emphasis on comfort, practicality, transparent communication and dependable coordination.",
+      services: [
+        "Corporate Travel & MICE",
+        "FIT & Bespoke Leisure Travel",
+        "Inbound, Series & Pilgrimage Travel",
+        "Honeymoon Travel",
+      ],
+    },
+  };
+
   return (
     <section
-      id="infrastructure"
-      className="overflow-hidden bg-[#F0F1ED] px-6 py-24 md:px-14 md:py-28"
+      id="business-verticals"
+      className="bg-[#F7F7F3] pb-24 pt-0 md:pb-28"
     >
-      <div className="mx-auto max-w-[1400px]">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
-          <div>
-            <SectionTitle
-              eyebrow="03 / INFRASTRUCTURE & RESILIENCE"
-              title={
-                <>
-                  The Strength Behind
-                  <br />
-                  <em className="text-[#347364]">
-                    Every Commitment.
-                  </em>
-                </>
-              }
-              description="An asset-backed business model, established specialist networks and significant investment in professional infrastructure provide the foundation for dependable execution."
+
+      {/* =====================================
+          BUSINESS INTRO — IMAGE WAVE BACKGROUND
+         ===================================== */}
+
+      <div className="relative overflow-hidden">
+
+
+{/* IMAGE BACKGROUND — ORIGINAL COLORS */}
+      <div className="relative w-full">
+        <img
+          src="/images/hero/open-horizon-verticals-wave.webp"
+          alt="Event production, photography and corporate travel"
+          className="block h-auto w-full"
+          loading="eager"
+        />
+      </div>
+
+        {/* OVERLAPPING INTRO PANEL */}
+        <Reveal>
+  <div className="relative z-10 mx-auto mt-6 w-[90%] max-w-[1050px] overflow-hidden rounded-[14px] bg-[#0D3B3C] px-6 py-12 text-center text-white shadow-[0_18px_45px_rgba(10,45,45,0.14)] md:mt-0 md:px-16 md:py-14">            {/* SUBTLE PANEL GRADIENT */}
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, rgba(52,114,102,0.22) 0%, transparent 75%)",
+              }}
             />
 
-            <Reveal delay={0.2} className="mt-9">
-              <EditorialLink href="/infrastructure">
-                Explore Our Infrastructure
-              </EditorialLink>
-            </Reveal>
+            <div className="relative z-10">
+
+              {/* EYEBROW */}
+              <div className="flex items-center justify-center gap-3">
+                <span className="h-px w-8 bg-[#9DCBB7]" />
+
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#B7D9C7]">
+                  OUR SPECIALIST VERTICALS
+                </p>
+
+                <span className="h-px w-8 bg-[#9DCBB7]" />
+              </div>
+
+              {/* HEADING */}
+              <h2 className="mt-6 font-[family-name:var(--font-playfair)] text-[clamp(30px,4vw,38px)] font-medium leading-[1.15] tracking-[-0.035em] text-white">
+                Three Distinct Businesses.
+                <br />
+           
+                  An Integral Platform
+              
+              </h2>
+
+              {/* DESCRIPTION */}
+              <p className="mx-auto mt-6 max-w-[720px] text-[15px] leading-[1.9] text-white/85 md:text-[16px]">
+                Explore the distinct capabilities of our three
+                businesses, each supported by professional
+                expertise, industry relationships and a
+                commitment to coordinated execution.
+              </p>
+
+            </div>
           </div>
+        </Reveal>
+      </div>
 
-          <Reveal>
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.7 }}
-              className="relative h-[390px] overflow-hidden md:h-[510px]"
-            >
-              <Photo
-                src={images.studio}
-                alt="Professional photography and technical production infrastructure"
-                className="h-full w-full"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </motion.div>
-          </Reveal>
-        </div>
+      {/* =====================================
+          ALTERNATING BUSINESS VERTICALS
+         ===================================== */}
 
-        <div className="mt-16 grid gap-x-10 border-t border-[#CED8D2] md:grid-cols-2">
-          {strengths.map((item, index) => {
-            const Icon = item.icon;
+      <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-14 md:pt-24">
+
+        <div className="space-y-14 md:space-y-20">
+
+          {verticals.map((item, index) => {
+            const detail = content[item.name];
+
+            if (!detail) return null;
+
+            const reversed = index % 2 === 1;
 
             return (
-              <Reveal
-                key={item.title}
-                delay={(index % 2) * 0.1}
+              <div
+                key={item.name}
+                className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-20 ${
+                  item.name === "ImageCraft"
+                    ? "rounded-[14px] bg-[#F0EEE7] px-6 py-12 md:px-10 md:py-14"
+                    : ""
+                }`}
               >
-                <motion.div
-                  whileHover={{ x: 6 }}
-                  transition={{ duration: 0.3 }}
-                  className="group flex min-h-[180px] gap-5 border-b border-[#CED8D2] py-8"
+
+                {/* IMAGE */}
+               
+{/* IMAGE — REDUCED HEIGHT & ENHANCED SHADOW */}
+
+{/* IMAGE — INDIVIDUAL HEIGHT CONTROL */}
+<div
+  className={`${
+    reversed ? "lg:order-2" : "lg:order-1"
+  } ${
+    item.name === "ImageCraft"
+      ? "lg:self-stretch lg:[&>*]:h-full"
+      : ""
+  }`}
+>
+  <Reveal>
+    <Link
+      href={item.href}
+      className={`group relative block overflow-hidden rounded-[12px] bg-[#173F46] shadow-[0_15px_40px_rgba(0,0,0,0.18)] transition-shadow duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.24)] ${
+        item.name === "ImageCraft" ? "lg:h-full" : ""
+      }`}
+    >
+      <div
+        className={
+          item.name === "ImageCraft"
+            ? "aspect-[3/4] w-full overflow-hidden lg:aspect-auto lg:h-full"
+            : "aspect-square w-full overflow-hidden"
+        }
+      >
+        <div className="h-full w-full transition-transform duration-1000 ease-out group-hover:scale-[1.035]">
+          <Photo
+            src={item.image}
+            alt={`${item.name} services`}
+            className={`h-full w-full object-cover ${
+              item.name === "ImageCraft"
+                ? "object-top"
+                : "object-center"
+            }`}
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />
+        </div>
+      </div>
+    </Link>
+  </Reveal>
+</div>
+
+
+                {/* CONTENT */}
+                <div
+                  className={
+                    reversed
+                      ? "lg:order-1"
+                      : "lg:order-2"
+                  }
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#BDD2C6] text-[#347969] transition-colors group-hover:bg-[#276B5C] group-hover:text-white">
-                    <Icon size={22} strokeWidth={1.5} />
-                  </div>
+                  <Reveal delay={0.1}>
+                    <div className="max-w-[560px]">
 
-                  <div>
-                    <h3 className="font-[family-name:var(--font-playfair)] text-[25px] font-medium tracking-[-0.035em] text-[#17373C]">
-                      {item.title}
-                    </h3>
+                      {/* EYEBROW */}
+                      <div className="flex items-center gap-3">
+                        <span className="h-px w-7 bg-[#397666]" />
 
-                    <p className="mt-3 max-w-[520px] text-[14px] leading-[1.9] text-[#63767A]">
-                      {item.text}
-                    </p>
-                  </div>
-                </motion.div>
-              </Reveal>
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#397666]">
+                          0{index + 1} / {detail.eyebrow}
+                        </p>
+                      </div>
+
+                      {/* BRAND NAME */}
+                      <p className="mt-3 font-[family-name:var(--font-playfair)] text-[28px] font-semibold text-[#15383B]">
+                        {item.name}
+                      </p>
+
+                      {/* DESCRIPTION */}
+                      <p className="mt-2 text-justify text-[16px] leading-[1.8] text-[#5E6F69]">
+                          {detail.description}
+                      </p>
+                        {/* SERVICES — NO BORDER, COMPACT SPACING */}
+                        <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3">
+                          {detail.services.map((service) => (
+                            <div
+                              key={service}
+                              className="flex items-start gap-3">
+                              <span className="mt-[9px] h-[6px] w-[6px] shrink-0 rounded-full bg-[#397666]" />
+                              <span className="text-[15px] font-semibold leading-[1.6] text-[#294F47]">
+                                {service}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+
+
+                
+                      
+                      {/* CTA — OCEAN BLUE / FOREST GREEN HOVER */}
+                      <div className="mt-6">
+                        <Link
+                          href={item.href}
+                          className="group inline-flex min-h-[52px] items-center justify-between gap-8 rounded-[3px] bg-[#087F9D] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:bg-[#176B5C] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)]"
+                        >
+                          Explore {item.name}
+
+                          <ArrowRight
+                            size={18}
+                            className="transition-transform duration-300 group-hover:translate-x-1"
+                          />
+                        </Link>
+                      </div>
+
+
+                    </div>
+                  </Reveal>
+                </div>
+
+              </div>
             );
           })}
         </div>
@@ -779,187 +1108,363 @@ function Infrastructure() {
     </section>
   );
 }
+
+// 
+
+ /* =========================================
+    SECTION 04 — INFRASTRUCTURE
+    ========================================= 
+
+function Infrastructure() {
+//   return (
+//     <section
+//       id="infrastructure"
+//       className="overflow-hidden bg-[#F0F1ED] px-6 py-24 md:px-14 md:py-28"
+//     >
+//       <div className="mx-auto max-w-[1400px]">
+//         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-20">
+//           <div>
+//             <SectionTitle
+//               eyebrow="03 / INFRASTRUCTURE & OPERATIONAL STRENGTH"
+//               title={
+//                 <>
+//                   Asset-Backed Infrastructure
+//                   <br />
+//                   <em className="text-[#347364]">
+//                     Financial Resilience
+//                   </em>
+//                 </>
+//               }
+//               description="Open Horizon operates on an asset-backed business model supported by company-owned offices, warehouses and substantial investment in professional equipment and advanced production technology.
+
+//                   Our lean fixed-cost structure, experienced teams and established specialist networks strengthen operational independence, commercial competitiveness and our capacity to execute assignments of varying scale and complexity."
+//             />
+
+//             <Reveal delay={0.2} className="mt-9">
+//               <EditorialLink href="/infrastructure">
+//                 Explore Our Infrastructure
+//               </EditorialLink>
+//             </Reveal>
+//           </div>
+//                <Reveal>
+//   <motion.div
+//     whileHover={{ scale: 1.02 }}
+//     transition={{ duration: 0.7, ease: 'easeOut' }}
+//     className="relative h-[450px] w-full bg-transparent md:h-[600px] lg:h-[650px]"
+//   >
+//     <Image
+//       src="/images/infrastructure-collage.png"
+//       alt="Luxury hotel, wedding events and corporate meeting infrastructure"
+//       fill
+//       priority
+//       sizes="(max-width: 1024px) 100vw, 60vw"
+//       className="object-contain"
+//     />
+//   </motion.div>
+ </Reveal>
+//         </div>
+
+//         <div className="mt-16 grid gap-x-10 border-t border-[#CED8D2] md:grid-cols-2">
+//           {strengths.map((item, index) => {
+//             const Icon = item.icon;
+
+//             return (
+//               <Reveal
+//                 key={item.title}
+//                 delay={(index % 2) * 0.1}
+//               >
+//                 <motion.div
+//                   whileHover={{ x: 6 }}
+//                   transition={{ duration: 0.3 }}
+//                   className="group flex min-h-[180px] gap-5 border-b border-[#CED8D2] py-8"
+//                 >
+//                   <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#BDD2C6] text-[#347969] transition-colors group-hover:bg-[#276B5C] group-hover:text-white">
+//                     <Icon size={22} strokeWidth={1.5} />
+//                   </div>
+
+//                   <div>
+//                     <h3 className="font-[family-name:var(--font-playfair)] text-[25px] font-medium tracking-[-0.035em] text-[#17373C]">
+//                       {item.title}
+//                     </h3>
+
+//                     <p className="mt-3 max-w-[520px] text-[14px] leading-[1.9] text-[#63767A]">
+//                       {item.text}
+//                     </p>
+//                   </div>
+//                 </motion.div>
+//               </Reveal>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </section>
+//   );
+} */
 
 /* =========================================
    SECTION 05 — BRAND ASSOCIATIONS
    ========================================= */
 
+/* =========================================
+   SECTION 04 — OUR CLIENTELE
+   ========================================= */
+
+
+/* =========================================
+   SECTION 04 — PROFESSIONAL ENGAGEMENTS
+   ========================================= */
+
 function Associations() {
-  const reduced = useReducedMotion();
+  const organisations = [...new Set(engagements)];
 
   return (
     <section
       id="associations"
-      className="overflow-hidden bg-[#FAF8F3] px-6 py-24 md:px-14 md:py-28"
-    >
-      <div className="mx-auto max-w-[1400px]">
-        <SectionTitle
-          eyebrow="04 / PROFESSIONAL ENGAGEMENTS"
-          title={
-            <>
-              Relationships Built
-              <br />
-              <em className="text-[#387869]">
-                Through Experience.
-              </em>
-            </>
-          }
-          description="Our professional engagements have spanned financial services, media, education, industry and other corporate sectors, reflecting the breadth of our institutional relationships."
-        />
+      className="overflow-hidden bg-[#FAF8F3] pt-16 pb-20 md:pt-20 md:pb-24">
 
-        <Reveal delay={0.2}>
-          <div className="relative mt-14 overflow-hidden border-y border-[#DDE3DB] py-9">
-            <motion.div
-              className="flex w-max items-center gap-5"
-              animate={
-                reduced
-                  ? undefined
-                  : { x: ['0%', '-50%'] }
-              }
-              transition={{
-                duration: 40,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              whileHover={{
-                animationPlayState: 'paused',
-              }}
-            >
-              {[...engagements, ...engagements].map(
-                (name, index) => (
-                  <div
-                    key={`${name}-${index}`}
-                    className="flex h-[104px] min-w-[205px] items-center justify-center border border-[#E2E7DF] bg-white px-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#7EA99D] hover:shadow-lg"
-                  >
-                    <span className="text-[15px] font-semibold tracking-[-0.025em] text-[#2B4E51]">
-                      {name}
-                    </span>
-                  </div>
-                )
-              )}
-            </motion.div>
+      {/* CENTERED INTRO */}
+
+      <div className="mx-auto max-w-[1400px] px-6 md:px-14">
+        <Reveal>
+          <div className="mx-auto max-w-[850px] text-center">
+
+            {/* EYEBROW */}
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-[#397666]" />
+
+              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#397666]">
+                OUR CLIENTELE
+              </p>
+
+              <span className="h-px w-8 bg-[#397666]" />
+            </div>
+
+            {/* HEADING */}
+            <h2 className="mt-5 font-[family-name:var(--font-playfair)] text-[clamp(36px,4vw,48px)] font-medium leading-[1.15] tracking-[-0.035em] text-[#15383B]">
+              Trusted Across Industries.
+              <br />
+             
+            </h2>
+
+            {/* DESCRIPTION */}
+            <p className="mx-auto mt-5 max-w-[700px] text-[16px] leading-[1.8] text-[#647579]">
+              Our professional engagements span organisations across financial services, media, education, hospitality and diverse corporate sectors, reflecting our extensive industry relationships and professional expertise.
+            </p>
+
           </div>
         </Reveal>
-
-        <Reveal delay={0.25}>
-          <p className="mt-5 max-w-[900px] text-[12px] leading-[1.8] text-[#83918C]">
-            Organisations listed reflect professional
-            engagements documented in the Open Horizon
-            company profile. They are not presented
-            as certifications or endorsements.
-          </p>
-        </Reveal>
       </div>
+
+      
+{/* OUR CLIENTELE — REFINED CAROUSEL */}
+<div className="relative mt-9 overflow-hidden bg-[#F2F5F1] py-8 md:mt-10 md:py-10">
+
+  <style>{`
+    @keyframes clienteleMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .clientele-track {
+      display: flex;
+      width: max-content;
+      animation: clienteleMove 45s linear infinite;
+    }
+
+    .clientele-viewport:hover .clientele-track {
+      animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .clientele-track {
+        animation: none;
+      }
+
+      .clientele-viewport {
+        overflow-x: auto;
+      }
+    }
+  `}</style>
+
+  <div className="clientele-viewport overflow-hidden py-3">
+
+    <div className="clientele-track">
+
+      {[0, 1].map((copy) => (
+        <div
+          key={copy}
+          aria-hidden={copy === 1}
+          className="flex shrink-0 gap-5 pr-5"
+        >
+          {organisations.map((name) => (
+            <div
+              key={name}
+              className="group relative flex h-[122px] w-[250px] shrink-0 flex-col justify-center overflow-hidden rounded-[10px] border border-[#DCE5DF] bg-white px-7 shadow-[0_6px_20px_rgba(18,58,49,0.07)] transition-all duration-300 hover:-translate-y-1 hover:border-[#91B9A8] hover:shadow-[0_15px_32px_rgba(18,58,49,0.15)]"
+            >
+
+              {/* ACCENT LINE */}
+              <span className="mb-4 h-[2px] w-7 bg-[#087F9D] transition-all duration-300 group-hover:w-14 group-hover:bg-[#176B5C]" />
+
+              {/* CLIENT NAME */}
+              <h3 className="font-sans text-[17px] font-semibold leading-[1.4] tracking-[-0.015em] text-[#173E40] transition-colors duration-300 group-hover:text-[#176B5C]">
+                {name}
+              </h3>
+
+            </div>
+          ))}
+        </div>
+      ))}
+
+    </div>
+  </div>
+</div>
+
     </section>
   );
 }
 
+
 /* =========================================
-   SECTION 06 — CERTIFICATES & CREDENTIALS
-   No invented certifications.
+   SECTION 05 — CORPORATE CREDENTIALS
+   ========================================= */
+
+
+/* =========================================
+   SECTION 05 — CORPORATE CREDENTIALS
+   TWO COMPACT CARDS — NO MEDAL
    ========================================= */
 
 function Credentials() {
   const credentials = [
     {
-      icon: FileCheck2,
-      title: 'Corporate Documentation',
-      text:
-        'Relevant corporate registration and business documentation can be presented following verification.',
+      number: "01",
+      badge: "/images/hero/msme-badge.png",
+      category: "CORPORATE REGISTRATION",
+      title: "MSME",
+      subtitle: "Micro, Small & Medium Enterprises",
+      description:
+        "Our MSME registration forms part of our formal corporate documentation and reflects our participation in India's recognised enterprise framework.",
     },
     {
-      icon: Award,
-      title: 'Professional Credentials',
-      text:
-        'Issued certificates, recognised credentials and supporting records can be featured with their authentic details.',
-    },
-    {
-      icon: ShieldCheck,
-      title: 'Compliance Records',
-      text:
-        'Applicable compliance documentation can be displayed with the issuing authority and validity details.',
+      number: "02",
+      badge: "/images/hero/ministry-tourism-badge.png",
+      category: "TOURISM CREDENTIAL",
+      title: "Ministry of Tourism",
+      subtitle: "Government of India",
+      description:
+        "Our tourism-sector credentials form part of our institutional documentation, supporting our professional presence in the travel and hospitality industry.",
     },
   ];
 
   return (
-    <section
-      id="credentials"
-      className="relative overflow-hidden bg-[#103B35] px-6 py-24 text-white md:px-14 md:py-28"
-    >
-      <div className="pointer-events-none absolute -right-40 -top-60 h-[620px] w-[620px] rounded-full border border-white/10" />
+    <section  id="credentials" className="relative isolate overflow-hidden bg-[#F8F6F0] px-6 pt-14 pb-10 md:px-14 xl:min-h-[500px] xl:pt-14 xl:pb-10">
 
-      <div className="relative mx-auto max-w-[1400px]">
-        <SectionTitle
-          light
-          eyebrow="05 / CORPORATE CREDENTIALS"
-          title={
-            <>
-              Credibility Through
-              <br />
-              <em className="text-[#B5D4B6]">
-                Documented Standards.
-              </em>
-            </>
-          }
-          description="Corporate documentation, professional credentials and recognised certificates form part of a transparent and responsible institutional presentation."
-        />
+      {/* CORPORATE BACKGROUND */}
+      
+{/* CORPORATE BACKGROUND WITH SOFT BLUE EDGES */}
+<div
+  className="pointer-events-none absolute inset-0 bg-contain bg-center bg-no-repeat xl:bg-[length:100%_100%]"
+  style={{
+    backgroundImage: `
+      linear-gradient(
+        90deg,
+        rgba(185, 218, 240, 0.48) 0%,
+        rgba(215, 235, 248, 0.20) 18%,
+        transparent 35%,
+        transparent 65%,
+        rgba(215, 235, 248, 0.20) 82%,
+        rgba(185, 218, 240, 0.48) 100%
+      ),
+      url('/images/hero/corporate-background-450.png')
+    `,
+  }}
+/>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {credentials.map((item, index) => {
-            const Icon = item.icon;
 
-            return (
-              <Reveal
-                key={item.title}
-                delay={index * 0.1}
-              >
-                <motion.div
-                  whileHover={{
-                    y: -8,
-                    scale: 1.015,
-                  }}
-                  transition={{
-                    duration: 0.35,
-                  }}
-                  className="group flex min-h-[290px] flex-col border border-white/20 bg-white/[0.055] p-8 backdrop-blur-sm transition-colors hover:border-[#A9D4C2]/60 hover:bg-white/[0.09]"
-                >
-                  <Icon
-                    size={31}
-                    strokeWidth={1.3}
-                    className="text-[#B9D9C3]"
-                  />
+      <div className="relative z-10 mx-auto max-w-[1100px]">
 
-                  <h3 className="mt-9 font-[family-name:var(--font-playfair)] text-[27px] tracking-[-0.035em]">
-                    {item.title}
-                  </h3>
+        {/* CENTERED INTRO */}
+        <div className="mx-auto max-w-[780px] text-center">
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-7 bg-[#397666]" />
 
-                  <p className="mt-4 text-[13px] leading-[1.95] text-white/65">
-                    {item.text}
-                  </p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#397666]">
+             COMPANY CERTIFICATIONS
+            </p>
 
-                  <div className="mt-auto pt-7">
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#A3C4B8]">
-                      Documentation pending verification
-                    </span>
-                  </div>
-                </motion.div>
-              </Reveal>
-            );
-          })}
+            <span className="h-px w-7 bg-[#397666]" />
+          </div>
+
+          <h2 className="mt-3 font-[family-name:var(--font-playfair)] text-[clamp(30px,3vw,38px)] font-medium leading-[1.15] text-[#15383B]">
+            Government Registrations
+          </h2>
+           <p className="mx-auto mt-3 max-w-[690px] text-[16px] leading-[1.65] text-[#647579]">
+            Our corporate registrations and institutional credentials
+            reflect our commitment to responsible business practices,
+            professionalism and transparency.
+          </p>
+          
+
+        
         </div>
 
-        <Reveal delay={0.25}>
-          <p className="mt-8 text-[12px] leading-[1.8] text-white/55">
-            Actual certificate previews, issuing authorities
-            and validity dates should be added only after
-            the corresponding documents are supplied
-            and verified.
-          </p>
-        </Reveal>
+        {/* TWO SMALL CREDENTIAL CARDS */}
+        
+        <div className="mx-auto mt-5 mb-8 grid max-w-[800px] gap-5 md:grid-cols-2">
+
+
+          {credentials.map((item) => (
+            <article
+              key={item.number}
+              className="group relative flex min-h-[205px] flex-col rounded-[12px] border border-[#E2CEAB] bg-white p-5 shadow-[0_8px_24px_rgba(71,59,38,0.11)] transition-all duration-500 hover:-translate-y-1 hover:border-[#C49A51] hover:shadow-[0_16px_32px_rgba(71,59,38,0.19)]"
+            >
+              {/* TOP BADGE + NUMBER */}
+              <div className="flex items-start justify-between">
+                
+<Image
+  src={item.badge}
+  alt={`${item.title} decorative badge`}
+  width={1086}
+  height={1448}
+  className="h-[85px] w-[72px] object-contain transition-transform duration-500 group-hover:scale-110"
+  sizes="72px"
+/>
+
+
+                <span className="font-[family-name:var(--font-playfair)] text-[23px] italic text-[#BD9452]">
+                  {item.number}
+                </span>
+              </div>
+
+              {/* CATEGORY */}
+              <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.12em] text-[#397666]">
+                {item.category}
+              </p>
+
+              {/* TITLE */}
+              <h3 className="mt-1 font-[family-name:var(--font-playfair)] text-[25px] font-medium text-[#15383B]">
+                {item.title}
+              </h3>
+
+              {/* SUBTITLE */}
+              <p className="mt-1 text-[13px] font-medium text-[#397666]">
+                {item.subtitle}
+              </p>
+
+              {/* DESCRIPTION */}
+              <p className="mt-2 text-justify text-[16px] leading-[1.6] text-[#5E706A]">
+                {item.description}
+              </p>
+
+            </article>
+          ))}
+        </div>
+
       </div>
     </section>
   );
 }
+
 
 /* =========================================
    SECTION 07 — STRATEGIC PARTNERSHIPS
@@ -973,7 +1478,7 @@ function Partnerships() {
     >
       <div className="absolute inset-0">
         <Photo
-          src={images.executive}
+          src={images.strategic}
           alt="Premium corporate hospitality interior"
           className="h-full w-full"
         />
@@ -985,7 +1490,7 @@ function Partnerships() {
         <div>
           <Reveal>
             <Eyebrow light>
-              06 / STRATEGIC PARTNERSHIPS
+           STRATEGIC PARTNERSHIPS
             </Eyebrow>
 
             <h2
@@ -1052,8 +1557,9 @@ export default function HomePage() {
     <main className="w-full overflow-x-hidden bg-[#F8F7F3] font-[family-name:var(--font-inter)]">
       <Hero />
       <WhoWeAre />
-      <Ecosystem />
-      <Infrastructure />
+      {/* <Ecosystem /> */}
+       {/* <Infrastructure />  */}
+      <BusinessVerticals />
       <Associations />
       <Credentials />
       <Partnerships />

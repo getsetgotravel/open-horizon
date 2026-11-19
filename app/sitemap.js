@@ -1,2 +1,24 @@
-import {site} from '../data/site';import {servicePages} from '../data/content';
-export default function sitemap(){return ['/','/about','/who-we-are','/what-we-do','/infrastructure','/sustainability','/our-team','/magnum','/imagecraft','/getsetgo','/experience','/contact',...Object.keys(servicePages).map(s=>`/services/${s}`)].map(path=>({url:site.url+path,lastModified:new Date(),changeFrequency:path==='/'?'weekly':'monthly',priority:path==='/'?1:.7}));}
+// Optional: generates https://openhorizon.co.in/sitemap.xml for search engines.
+// Keep ONLY routes that actually exist on the deployed website.
+const baseUrl = "https://openhorizon.co.in";
+
+export default function sitemap() {
+  const routes = [
+    "",
+    "/who-we-are",
+    "/what-we-do",
+    "/infrastructure",
+    "/sustainability",
+    "/our-team",
+    "/contact",
+    "/privacy-policy",
+    "/disclaimer",
+    "/sitemap",
+  ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    changeFrequency: route === "" ? "weekly" : "monthly",
+    priority: route === "" ? 1 : 0.6,
+  }));
+}

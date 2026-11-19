@@ -80,83 +80,43 @@ export default function Footer() {
       />
 
       {/* Main footer */}
-      <div className="relative mx-auto max-w-[1440px] px-6 pt-20 pb-14 md:px-14 md:pt-28 xl:px-20">
+      <div className="relative mx-auto max-w-[1440px] px-6 pt-20 pb-14 md:px-14 md:pt-10 xl:px-20">
 
-        {/* Footer introduction */}
-        <FooterReveal>
-          <div className="flex flex-col justify-between gap-9 border-b border-white/15 pb-14 lg:flex-row lg:items-end">
 
-            <div className="max-w-[770px]">
-              <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#99CFC2]">
-                OPEN HORIZON · INFINITE POSSIBILITIES
-              </p>
-
-              <h2 className="font-[family-name:var(--font-playfair)] text-[38px] font-medium leading-[1.2] tracking-[-0.035em] text-white md:text-[38px]">
-                Meaningful Relationships.
-                <br />
-                <span className="italic text-[#A9D0BD]">
-                  Enduring Business Value.
-                </span>
-              </h2>
-
-              <p className="mt-6 max-w-[590px] text-[14px] leading-[1.9] text-white/65">
-                An integrated enterprise platform connecting event
-                management, high-definition visual production,
-                corporate travel and premium hospitality through
-                specialist expertise and coordinated execution.
-              </p>
-            </div>
-
-            <Link
-              href="/contact"
-              className="
-                group inline-flex w-fit shrink-0 items-center
-                gap-9 border border-[#8AAEA4]/50
-                px-6 py-4 text-[12px] font-semibold
-                uppercase tracking-[0.08em]
-                transition-all duration-300
-                hover:border-[#A9D0BD]
-                hover:bg-[#A9D0BD]
-                hover:text-[#0B2832]
-              "
-            >
-              Start a Conversation
-              <ArrowUpRight
-                size={19}
-                className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-              />
-            </Link>
-          </div>
-        </FooterReveal>
 
         {/* Footer columns */}
-        <div className="grid gap-x-10 gap-y-14 border-b border-white/15 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1.2fr]">
+        <div className="grid gap-x-10 gap-y-10 border-b border-white/15 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1.2fr]">
 
           {/* Brand */}
           <FooterReveal delay={0.05}>
             <div>
-              <Link
-                href="/"
-                aria-label="Open Horizon homepage"
-                className="inline-flex bg-white p-3"
-              >
-                <Image
-                  src="/logos/open-horizon.png"
-                  alt="Open Horizon — Infinite Possibilities"
-                  width={225}
-                  height={75}
-                  sizes="225px"
-                  className="h-auto w-[225px] object-contain"
-                />
-              </Link>
+             
+<Link
+  href="/"
+  aria-label="Open Horizon homepage"
+  className="inline-flex items-center justify-center bg-white p-1"
+>
+  <Image
+    src="/logos/open-horizon.png"
+    alt="Open Horizon — Infinite Possibilities"
+    width={270}
+    height={65}
+    sizes="(max-width: 768px) 210px, 270px"
+    className="h-auto w-[210px] object-contain md:w-[270px]"
+    priority
+  />
+</Link>
 
-              <p className="mt-7 max-w-[330px] text-[13px] leading-[1.9] text-white/65">
-                Professional Relationships.
-                <br />
-                Coordinated Solutions.
-                <br />
-                Lasting Value.
-              </p>
+
+             
+<p className="mt-7 max-w-[330px] text-justify text-[13px] leading-[1.9] text-white/65">
+  An integrated enterprise platform operating at the intersection
+  of luxury hospitality, live experiences, high-definition visual
+  media and bespoke travel. We specialise in event management and
+  production, corporate travel and MICE, professional photography
+  and visual production.
+</p>
+
 
               <div className="mt-8 flex items-center gap-2">
                 <span className="h-px w-7 bg-[#9CCDBF]" />
@@ -274,27 +234,24 @@ export default function Footer() {
 
           <div className="flex flex-wrap items-center gap-6">
             <Link
-              href="/who-we-are"
+              href="/disclaimer"
               className="transition-colors hover:text-white"
             >
-              About Open Horizon
+              Disclaimer
             </Link>
-
             <Link
-              href="/contact"
+              href="/sitemap"
               className="transition-colors hover:text-white"
             >
-              Contact
+              Sitemap
             </Link>
-
-            <a
-              href="https://openhorizon.co.in"
-              target="_blank"
-              rel="noopener noreferrer"
+               <Link
+              href="/privacy-policy"
               className="transition-colors hover:text-white"
             >
-              openhorizon.co.in
-            </a>
+              Privacy Policy
+            </Link>
+           
           </div>
         </div>
       </div>
